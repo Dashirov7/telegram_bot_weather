@@ -8,8 +8,10 @@ def get_weather(city, open_weather_token):
 
     try:
         r=requests.get(
-            f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={open_weather_token}"
+            f"http://api.openweathermap.org/geo/1.0/direct?q={city}&appid={open_weather_token}"
         )
+
+
 
         data=r.json()
         #pprint(data)
@@ -21,8 +23,8 @@ def get_weather(city, open_weather_token):
        # cloudiness = data["main"]["cloudiness"]
 
 
-        print[f"Погода в городе: {city}\n температура: {cur_weather}\n влажность: {humidity}\n" \
-              f"скорость ветра: {wind}\n "]
+        print (f"Погода в городе: {city}\n температура: {cur_weather}\n влажность: {humidity}\n" \
+              f"скорость ветра: {wind}\n ")
 
     except Exception as ex:
 
